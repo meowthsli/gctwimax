@@ -225,7 +225,8 @@ int eap_peer_init(void)
 			eap_ctx.eap_config.identity_len = strlen(eap_login);
 			eap_ctx.eap_config.password = (u8 *) os_strdup(eap_pass);
 			eap_ctx.eap_config.password_len = strlen(eap_pass);
-			eap_ctx.eap_config.ca_cert = (u8 *) os_strdup(eap_ca_path);
+			// LibEAP doesn't work with selfsigned certs; can do nothing with that
+			// eap_ctx.eap_config.ca_cert = (u8 *) os_strdup(eap_ca_path);
 			eap_ctx.eap_config.phase2 = (char *) os_strdup("auth=MSCHAPV2");
 			break;
 		}
@@ -289,7 +290,8 @@ void eap_peer_deinit(void)
 		case 5: {
 			os_free(eap_ctx.eap_config.identity);
 			os_free(eap_ctx.eap_config.password);
-			os_free(eap_ctx.eap_config.ca_cert);
+			// LibEAP doesn't support selfsigned certs; can do nothing with that
+			// os_free(eap_ctx.eap_config.ca_cert);
 			os_free(eap_ctx.eap_config.phase2);
 			break;
 		}
