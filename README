@@ -26,8 +26,9 @@ Verifiers:
 ======
 [meowth]:
 
-I'm interested in the working with Seowon 32x0A (GCT) Wimax with Comstar WiMax provider only. So I will specialize this driver to fit.
-Command line that works for me Login/pass were acquired via Comstar Site service at (http://service.comstar.ru/lk/control_access.jsp):
+I'm interested in the working with Seowon 32x0A (GCT) Wimax with Comstar WiMax provider only,
+So I will specialize this driver to fit. Command line that works for me 
+(Login/pass were acquired via Comstar Site service at http://service.comstar.ru/lk/control_access.jsp):
 
-*sudo gctwimax --login=wimaxXXXXX --pass=00000 --nspid=000029 --nai=MAC@wimax.comstar-uts.ru --eap-type=5*
+_sudo gctwimax --login=wimaxXXXXX --pass=00000 --nspid=000029 --nai=MAC@wimax.comstar-uts.ru --eap-type=5_
 
