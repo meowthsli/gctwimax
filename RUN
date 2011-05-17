@@ -1,0 +1,49 @@
+gctWiMAX: RUN
+
+ $ sudo gctwimax -h
+
+Usage: gctwimax [options]
+Options:
+      --login=                Login
+      --pass=                 Password
+      --nai=                  Outer NAI (default:mac@freshtel.com.ua)
+      --eap-type=             EAP Type: 3 - TLS, 5 - MSCHAPV2 (default: 5)
+  -v, --verbose               increase the log level
+  -q, --quiet                 switch off logging
+  -d, --daemonize             daemonize after startup
+  -l, --log-file=FILE         write log to the FILE instead of the other
+                              methods
+  -V, --version               print the version number
+      --nspid=                specify NSPID, a friendly name that identifies a
+                              particular 802.16e wireless Network
+                              Service Provider (Freshtel NSPID: 000032)
+  -e, --event-script=FILE     specify path to the event script
+      --with-dbus             Run with dbus support
+  -h, --help                  display this help
+  
+
+ $ gctwimax --login=XXXXXX --pass=YYYYYY
+ 
+If the driver did not get IP Address automatically enter:
+ $ dhclient wimaxX
+ 
+ To run with support for dbus
+ $ gctwimax --login=XXXXXX --pass=YYYYYY --with-dbus
+______
+For EAP-TTLS/MSCHAPV2:
+
+ $ gctwimax --login=XXXXXX --pass=YYYYYY --nspid=000032 --nai=MAC@freshtel.com.ua --eap-type=5
+ 
+For EAP-TLS:
+
+ $ gctwimax  --nspid=00002c --nai=MAC@mezon.lt --eap-type=3
+______
+ Outer NAI & NSPID:
+ --nspid=000032 --nai=MAC@freshtel.com.ua 		-	For Ukrainian Freshtel
+ --nspid=000032 --nai=login@freshtel.ru 		-	For Russian Freshtel
+ --nspid=000029	--nai=MAC@wimax.comstar-uts.ru	-	For Russian Comstar
+ --nspid=00002c --nai=MAC@mezon.lt				-	For	Lithuania MEZON
+ 
+MAC = your device mac in format - 001122334455
+ 
+ 
